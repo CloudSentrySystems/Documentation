@@ -1,42 +1,100 @@
-# Ops 301 Final Project Guidelines
+# Ops 401 MidTerm Project Guidelines
+
+## Team Members
+
+Raphael
+Dustin
+Marcelo
+Jonathan
+Robert
 
 ## Scenario & Problem Domain
 
-You team is tasked with updating the core IT infrastructure of a recent client company acquisition. This young, innovative startup aligns well with the mission of the client company; unfortunately, its IT systems are not yet integrated into the corporate domain and cloud infrastructure.
+Your team has been contracted to improve the cybersecurity processes and systems for a client company, focusing on logging, monitoring and detection of adversarial activity on cloud infrastructure.
 
-Your team has been assigned to prototype the process of integrating these new companies. You will need to set up a VPC and Windows Server in AWS to represent existing Globex infrastructure, then practice the process of adding and organizing the new employees in Active Directory, securely connecting the acquisition's office network to the VPC, connecting local endpoints to the domain, and configuring a captive portal on a local router authenticate using Active Directory.
+## Project Requirements
 
-Remember, the purpose of this project is to **demonstrate a repeatable, efficient system** for integrating new acquisitions, not just to show off the technology itself.
+For this project, your client has requested a demonstration of how you'll be able to protect their cloud infrastructure. You'll need to implement the following in AWS Cloud to demonstrate how you'll secure the AWS environment:
 
-Your instructor will play the role of the operations manager who has tasked you with this project, and will send you a detailed list of technical requirements.
+* **IAM**
+
+  * Proper IAM best practices must be implemented for the root account
+
+  * Proper IAM for all team members must be implemented using AWS best practices
+
+* **Server Hardening and Data Protection**
+
+  * CIS-compliant Windows Server DC hosted on a private subnet of a VPC and accessible only via VPN tunneling
+
+    * Data needs to be encrypted at rest and encrypted in transit
+
+    * Deploy Sysmon to generate security-relevant system logs
+
+  * CIS-compliant Data Server
+
+    * Linux server instance containing PII and PCI data
+
+    * Data needs to be encrypted at rest and in transit
+
+* **SIEM / Log aggregation system**
+
+  * Splunk, CloudWatch, Elastic Stack
+
+  * Configured to ingest event logs in real time from key assets including EC2 instances
+
+  * Show an attack TTP, attack must incorporate a Python script using a new library you have not worked with yet.
+
+  * The attack should trigger an event that gets ingested by the SIEM solution
+
+* **Cloud Monitoring**
+
+  * Capture traffic for the client to demonstrate how the attack TTPs would be detected in the AWS Cloud using VPC Flow Logs and any additional automation necessary
+
+  * An AWS Lambda function triggering a relevant response to a detected threat (this fulfills the requirement for a shell script)
+
+  * Monitor for threat activity in your AWS environment
+
+  * Monitor Security Logs for failed SSH attempts on your instances
+
+* **Novelty**
+
+  * Challenge yourselves to implement a novel tool, system, or technique that was not demonstrated or performed during lab time in term 1 of your Ops 401 class.
 
 ## Assignments & Deliverables
 
 Keep an eye on Canvas for assignments due this week.
 
-- Remember to complete nightly Project Report assignments. These assignments are easy to forget as you get swept up in interesting project subject matter.
-- Necessities such as team agreement (conflict resolution, etc.) and project plan will be created in your Project Prep assignments. Instructor approval is required before progressing to the next Project Prep assignment.
-- You will need to submit a preliminary link to your deliverables for instructor review on day 3 of project week.
-- You will need to give give a practice presentation for your instructor on day 4 or project week (your instructors will schedule this). Make this as close as possible to how you plan to present on day 5 -- try not to break character, give assides or explanations, or engage in crosstalk.
-- By demo day, you'll need these deliverables assembled:
-  - Demo day slide deck
-  - Project report
-  - Project plan
-  - GitHub repo
-  - Google drive docs (if used)
-- Track your individual contributions throughout the project so that you can easily submit your individual contributions writeup on demo day for grading.
+* Remember to complete nightly Project Report assignments. These assignments are easy to forget as you get swept up in interesting project subject matter.
+
+* Necessities such as team agreement (conflict resolution, etc.) and project plan will be created in your Project Prep assignments. Instructor approval is required before progressing to the next Project Prep assignment.
+
+* By demo day, you'll need these deliverables assembled:
+
+  * Demo day slide deck
+
+  * Project report
+
+  * Project plan
+
+  * GitHub repo
+
+  * Google drive docs (if used)
+
+* Track your individual contributions throughout the project so that you can easily submit your individual contributions writeup on demo day for grading.
 
 ## Standup
 
-Every day, the instructional team with circulate to your group for a formal "Standup Meeting". Standup should take approximately 10 minutes per team. Some instructors will opt for a "retro" later in the day to review how things went.
+Every day, the instructional team will circulate to your group for a formal "Standup Meeting".
+Standup should take approximately 10 minutes per team. Some instructors will opt for a "retro" later in the day to review how things went.
 
-> Standups give the instructional team insight into the current status of your project and the progress the team hopes to make each day.
+Standups give the instructional team insight into the current status of your project and the progress the team hopes to make each day.
+During stand up, each team member will address these three points:
 
-During standup, each team member will address these three points:
+* What you individually accomplished yesterday
 
-  1. What you individually accomplished yesterday
-  1. What you individually plan to accomplish today
-  1. Anything that is blocking you from making progress
+* What you individually plan to accomplish today
+
+* Anything that is blocking you from making progress
 
 ## Presentation Prep
 
@@ -46,22 +104,29 @@ Practice and prepare your technical demonstrations in advance of demo day to rul
 
 General slide deck guidelines:
 
-- The presentation slides must use the aesthetic formatting of the [template slide deck](https://docs.google.com/presentation/d/1iv8uB6H0P49RN9IF6cYA5lpfiuL4WBGQqcbEu6Q4JAA/edit?usp=sharing).
-  - Remember to create your own copy of the template and do not edit the template itself.
-- Ensure your timing is no more than 20 minutes long, including some time at the end for questions.
-- Present from the final product, deployed site, or official documentation that you produce.
-- Each member should introduce themselves with their personal pitch.
-  - The "About Us" page provides a great backdrop for this portion of the presentation.
+* The presentation slides must use the aesthetic formatting of the template slide deck.
 
-Each member of the team must have a speaking part. It is okay to use presenter notes/outlines but remember to avoid reading notes verbatim and to present naturally as if speaking to a friend.
+* Remember to create your own copy of the template and do not edit the template itself.
+
+* Ensure your timing is no more than 25 minutes long, including some time at the end for questions.
+
+* Present from the final product, deployed site, or official documentation that you produce.
+
+* Each member should introduce themselves with their personal pitch.
+
+* The "About Us" page provides a great backdrop for this portion of the presentation.
+
+Each member of the team must have a speaking part. It is okay to use presenter notes/outlines but remember to avoid reading notes verbatim and to present naturally as if speaking to a colleague.
 
 The appropriate dress code is business casual - not too formal and not too casual.
 
-Be cognizant of the environment you're presenting from. A clean backdrop, good lighting, and quality mic and webcam go a long ways.
+Be cognizant of the environment you're presenting from. A clean backdrop, good lighting, and quality mic and webcam go a long way.
 
 In addition to the scheduled practice session, the team is encouraged to continue to practice on their own. Keep track of the time and adjust accordingly. Practice transitioning speaking segments.
 
 Speak clearly and do not use slang or profanity. Take it seriously and be professional.
+
+Tip: Slides should be composed of talking points, not lines to be read verbatim! Avoid the "teleprompter" effect and aim for a natural, extemporaneous presentation on demo day.
 
 ## Grading
 
@@ -69,116 +134,119 @@ Each team member's grade is split between their individual effort, and the proje
 
 Individual effort is graded based on contributions to project deliverables, and professionalism in the presentation.
 
-Technical merit of the project overall is evaluated according the requirements. The Project Grade is a combination of the Presentation (50%) and the Deliverables (50%)
+Technical merit of the project overall is evaluated according to the requirements.
 
-### Presentation (50%)
+## Presentation (55%)
 
 Components of the presentation must include:
 
-#### Team members individually introduce themselves. (2-5 min)
+* Team members individually introduce themselves using their own professional pitch. (3 min, explain why they are making the career change)
 
-- One interesting/fun fact about yourself
-- Your career ambitions (where you've been, where you're going, and why)
+* Topical overview (2 min)
+  * As the "Problem Domain", describe the project scenario you were assigned and the overall client requirements.
 
-#### Topical Overview (2-5 min)
+    * Compliance requirements
 
-- As the "Problem Domain", describe the project scenario you were assigned and the overall client requirements.
-- What solutions to the problem domain will your team be presenting today? Why did you choose these solutions?
-- Explain and define any key terms you use, such as DNS, DHCP, Static IP. Your audience is both technical and non-technical, and they need to be able to follow along with your presentation.
+    * Security systems requirements
 
-#### Technical Demonstration of network infrastructure and Domain Services (8-12 min)
+  * Technical demonstrations of solutions (12 min)
 
-- A secure Virtual Private Cloud on AWS, hosting corporate Globex resources
-- Implementation of virtual private networking (VPN)
-  - Demonstration of successful remote access of remote cloud services
-- Network access controls system
-  - How does your system achieve AAA network security management principles?
-  - How do you secure access to your cloud resources?
-- Automation, documentation, and templating to facilitate quick and consistent deployment
-- A domain joined local endpoint, subject to security guidelines and group policy dictated by the Domain Controller
+    * Introduce the cloud architecture diagram of your environment
 
-#### Final thoughts on how the project went (2 min)
+    * Demonstrate your solution(s) to the problem domain here
 
-- The team's approach to planning and communication throughout the project
-- A technical obstacle or two and how those obstacles were overcome
-- A portion of the outcome that each team member is particularly proud of
+  * Final thoughts on how the project went (3 min)
 
-#### Q&A (5 min)
+    * Each team member should share some final thoughts on the project. Some topics you could discuss here include:
 
-- All team members should contribute to answering questions
+      * The team's approach to planning and communication throughout the project
 
-### Deliverables (50%)
+      * A technical obstacle or two and how those obstacles were overcome
 
-Submit to instructor a single link to your Github Org. All team members are to contribute an equal share to documentation corresponding to the components they worked on and should clearly indicate which components each contributed to in their individual project submission notes.
+      * A portion of the outcome you are particularly proud of achieving
 
-#### **GitHub Repository (10%)**
+    * Q&A (5 min)
 
-* An appropriately name Github "Organization"
-  - Sufficient documentation in the top level README to explain to a stranger who you are, what this project was about, and how all of the material in the repo pertains to it.
-    - This README should be:
-      - Attractively formatted
-      - Include links to relevant files and repos.
-      - Include links to each of your own Github accounts AND LinkedIn accounts.
-- Separate repositories for:
-  - Presentation and Project Organization materials.
-  - SOPs, Topologies, and other documentation.
-  - Scripts.
-- Each of these repositories should have attractive and informative `README.md`, and well labeled links to any relevant files within the repo.
-- Systems Documentation:
-  - Include in your deliverable any relevant information required for the operation of the demonstrated systems.
-  - Any config files which you created or customized, exported in an appropriate format (such as json)
+## Deliverables (45%)
 
-#### **Presentation Material (5%)**
+Submit to your instructor a single link to your Github Org. All team members are to contribute an equal share to documentation corresponding to the components they worked on and should clearly indicate which components each contributed to in their individual project submission notes.
 
-- Slide deck, as a PDF
-- A link to the video of your presentation (when it becomes available)
+### GitHub Repository (10%)
 
-#### **Scripts and Automation (5%)**
+* A repo under an appropriately named Github "Organization"
 
-- Include any Scripts written in the course of the project.
+* Sufficient documentation in the top level README to explain to a stranger who you are, what this project was about, and how all of the material in the repo pertains to it.
 
-#### **Network design (20%)**
+* This README should be:
 
-- A clear, written explaination and justification your network design.
-  - Include a table or chart of network infrustructure and configuration details (yes, this will overlap with your topology -- you must document your network in both ways):
-    - Subnets and their uses
-      - Include Subnet Masks, CIDR addresses, etc.
-    - DHCP ranges
-      - Lease pools
-      - Ranges of addresses reserved for particular uses
-    - Firewall rules
-    - Roles and IP address of all important devices (everything but endpoints)
-- A network topology diagram of your systems architecture design.
-  - All components must be labeled, and network diagram must be presentable (straight lines) and free of defects/typographical issues. Take your time to create a quality network diagram; do not rush!
-  - Clearly indicate what devices are hosting network services, like DHCP, DNS, etc.
-  - Include enough information (such as computer names, OS types, IPs etc.) to be useful, but this will be paired with written explanation and infrastructure chart, which should be more exhaustive.
+  * Attractively formatted
 
-#### **SOP and Policy Documentation (10%)**
+  * Include links to relevant files in the repo
 
-- SOP Requirements:
-  - Each SOP should include the following sections:
-    - Purpose
-    - Scope
-    - Responsibilities
-    - Prerequisites
-    - Procedures
-    - References
-    - Definitions
-    - Revision History (including who contributed to each revision)
-  - For **each** SOP included in your MSP SOW deliverable, attribute authorship to the team member
-  - SOPs can either be:
-    - Worked on as google docs and submitted as PDFs
-    - Worked on and submitted as Markdown files
-  - SOPs should share a common format (see [SOP-example-template](./SOP-example-template.md))
-  - SOPs should be submitted either as individual documents or as a single document (either PDF or Markdown) with a linked table of contents
-- Compose thorough SOPs for each of the following:
-  - How will network account needs be handled for employees being onboarded?
-  - How will network account needs be handled for employees being terminated?
-  - How will OS version control be handled?
-    - Hint: Read [Windows Server Update Services](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus){:target="_blank"}.
-  - How will you ensure users can access their files from any domain attached system?
-  - How will you monitor network traffic?
-  - How will you manage change to the network (such as hardware, software, or configuration changes) while minimizing network disruptions and downtime?
-  - How will you manage and maintain network security?
+  * Include links to each of your own Github accounts AND LinkedIn accounts
 
-Teams are encouraged to ask their instructional team for feedback on project report, slide deck, and other deliverables. The client point of contact should be contacted via email regarding scenario-specific scoping.
+* All other deliverables should be included as files in this repo
+
+* Scripts: Scripts used to automate the deployment process of the project, which can include provisioning the required AWS resources, deploying the code, configuring the services and performing attacks.
+
+### Presentation Material (5%)
+
+* Slide deck, as a PDF
+
+* A link to the video of your presentation (when it becomes available)
+
+### Cloud Architecture Design (20%)
+
+* AWS infrastructure components, their interactions, and how they fit together.
+
+* All components must be labeled, and diagrams must be presentable (straight lines) and free of defects/typographical issues. Take your time to create a quality diagram; do not rush!
+
+* Clearly indicate AWS instances, networks, tools and services.
+
+* A clear, written explanation and justification of your cloud architecture design.
+
+* Add descriptions of how you incorporated these systems into your technical demo:
+
+  * AWS IAM
+
+  * AWS CloudTrail
+
+  * Amazon GuardDuty
+
+* Include a table or chart of network infrastructure and configuration details (yes, this will overlap with your topology -- you must document your network in both ways):
+
+  * Subnets and their uses
+
+  * Include Subnet Masks, CIDR addresses, etc.
+
+  * Security Group rules
+
+## SOP and Policy Documentation (10%)
+
+* **Security Incident Plan**
+
+  * The test plan should include detailed testing procedures of security controls and monitoring solutions along with expected outcomes.
+
+  * Include a diagram of the expected events when an attack triggers your monitoring tools.
+
+* **Compliance Documentation**
+
+  * Compliance documentation should be developed to demonstrate that the system meets any relevant regulatory requirements.
+
+  * This may include documentation showing compliance with PCI, GDPR, or other industry-specific regulations. (Pick one compliance framework)
+
+## Resources
+
+You can use [Stratus Red Team](https://github.com/DataDog/stratus-red-team) for threat emulation
+
+## Notice
+
+Since there is an opportunity of simulating attacks in this project, keep in mind the following:
+
+* Attack activity should only be conducted on systems you own within AWS
+
+* Attack activity should be contained to your AWS VPC and should not originate from outside of it.
+
+  * This means that if you want to simulate an attack against an instance in your VPC you should deploy an additional instance within your project VPC to act as your attacker machine and initiate attacks from there.
+
+  * This way all of your traffic is contained.
