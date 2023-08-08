@@ -85,7 +85,7 @@ To establish a standardized and reliable method for performing regular security 
 
 **Test Cloud Monitoring**:
    * Verify that VPC Flow Logs are capturing traffic to detect attack TTPs.
-   * Test the AWS Lambda function's capability to trigger relevant responses to detected threats.
+   * Test the AWS instance function's capability to trigger relevant responses to detected threats.
    * Monitor for threat activity in the AWS environment, especially failed SSH attempts on instances.
    * **Expected Outcome**: The cloud monitoring setup is fully functional.
 
