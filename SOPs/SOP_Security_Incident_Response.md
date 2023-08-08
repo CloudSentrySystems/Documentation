@@ -6,7 +6,7 @@ Purpose of this SOP is to outline the process of identifying, classifying, respo
 
 ## Scope
 
-To establish a standardized and reliable method for performing regular security incident response procedures in [Your Organization Name]'s cloud computing infrastructure.
+To establish a standardized and reliable method for performing regular security incident response procedures in client's of Cloud Sentry cloud computing infrastructure.
 
 ## Responsibilities
 
