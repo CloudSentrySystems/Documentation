@@ -23,6 +23,7 @@ This repository contains all documentation related to this project,  including t
 | [Team Agreement](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/Team_Agreement.md) |
 | [Network Topology](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/CloudSentry%20-%20Overview%20Topology_v2.pdf) |
 | [Network Architecture Design Statement](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/Network%20Statement.md) |
+| [CloudWatch Log Topology](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/CloudSentry%20-%20Topology%20-%20LogAggregation.pdf) |
 
 <br>
 
