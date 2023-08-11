@@ -21,7 +21,7 @@ This repository contains all documentation related to this project,  including t
 |:-----------------------:|
 |  [System Selection](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/System_Selection.md) |
 | [Team Agreement](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/Team_Agreement.md) |
-| [Network Topology](https://github.com/CloudSentrySystems/Presentations) |
+| [Network Topology](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/CloudSentry%20-%20Overview%20Topology_v2.pdf) |
 | [Network Architecture Design Statement](https://github.com/CloudSentrySystems/Documentation/blob/main/Team_Documents/Network%20Statement.md) |
 
 <br>
