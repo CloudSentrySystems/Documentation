@@ -2,99 +2,110 @@
 
 ## Team Members
 
-Raphael
-Dustin
-Marcelo
-Jonathan
-Robert
+Eddie Ayala
+Carlos Rojas
+David Siebert
+Raphael Chookagian
 
 ## Scenario & Problem Domain
 
-Your team has been contracted to improve the cybersecurity processes and systems for a client company, focusing on logging, monitoring and detection of adversarial activity on cloud infrastructure.
+Your MSSP has been contracted to perform a one-time adversary emulation engagement for [SimCorp](https://www.simcorp.com/), a financial asset management company. The CTO is concerned with the security posture of the company's cloud systems, after having already experienced sensitive data exposure as a result of misconfiguration of an employee's instance. Depending on the quality of your company's findings, SimCorp may consider a long term agreement to have your MSSP defend its cloud systems.
 
-## Project Requirements
+You'll be divided into two teams, red and blue, for the full duration of the project. The red team will be tasked with discovering vulnerabilities on SimCorp systems and also exploiting them to gain access. The blue team will be overseeing the defensive systems and making meaningful improvements to threat detection capabilities.
 
-For this project, your client has requested a demonstration of how you'll be able to protect their cloud infrastructure. You'll need to implement the following in AWS Cloud to demonstrate how you'll secure the AWS environment:
+### White Team
 
-* **IAM**
+Your instructor will play the role of white team and oversee the engagement.
 
-  * Proper IAM best practices must be implemented for the root account
+### Red Team
 
-  * Proper IAM for all team members must be implemented using AWS best practices
+You've been tasked with enumerating the target network from a "black box" position (minimal knowledge of the target environment) starting with a foothold on a single endpoint. One of your goals is discovering as many vulnerabilities as you can and documenting them in accordance with community resources such as CWE and CVSS. You'll also get to apply TTPs you've learned throughout this course and perform exploits as the opportunities present themselves. Document how you went about executing TTPs and whether they were successful or not.
 
-* **Server Hardening and Data Protection**
+#### Red Team Staging
 
-  * CIS-compliant Windows Server DC hosted on a private subnet of a VPC and accessible only via VPN tunneling
+You will be provided with a single compromised endpoint instance as well as VPN access to its LAN to facilitate tool execution. For example, if you wanted to perform attacks from Kali Linux, you would activate an OpenVPN connection from Kali Linux to the target network.
 
-    * Data needs to be encrypted at rest and encrypted in transit
+#### Red Team Objectives (RTOs)
 
-    * Deploy Sysmon to generate security-relevant system logs
+- RTO1. Enumerate the target network, gleaning as much information as possible about the various hosts and their configurations. Document in detail what tools were used and how much you were able to reveal.
+  - RTO1a. Create a professional network topology of the target environment for inclusion in your final report.
+- RTO2. Discover vulnerabilities on targets hosts on the network. There will be at least one web application for you to discover and test against, in addition to several other instances running various operating systems with unknown configurations.
+- RTO3. Build/customize and utilize at least one custom Python tool to aid in your team's offensive efforts.
+- RTO4. Exploit and gain access to as many host instances as possible, and as deeply as possible.
 
-  * CIS-compliant Data Server
+While hacking is great fun, be sure to take plenty of screenshots and document what worked and didn't work in order to produce a high quality report deliverable. Remember the goal is to help your client understand their risks.
 
-    * Linux server instance containing PII and PCI data
+### Blue Team
 
-    * Data needs to be encrypted at rest and in transit
+In this engagement, the blue team is not acting as incident response, but rather is adopting a threat hunter posture. Adversarial progress is not to be interfered with, but observed and documented as if the VPC were a honeypot. You'll need to quickly evaluate SimCorp's blind spots and shore up any lacking detection capabilities so that you don't miss out on the action.
 
-* **SIEM / Log aggregation system**
+#### Blue Team Staging
 
-  * Splunk, CloudWatch, Elastic Stack
+You will be provided with IAM user accounts to access the AWS account and administer your systems. Some useful tooling has been prestaged for you, such as Splunk Enterprise (SIEM) and Zeek (NIDS). By the time the project begins in earnest, the adversary will already have a foothold on your network.
 
-  * Configured to ingest event logs in real time from key assets including EC2 instances
+#### Blue Team Objectives (BTOs)
 
-  * Show an attack TTP, attack must incorporate a Python script using a new library you have not worked with yet.
+- BTO1. In the early stages of project week, construct an initial threat model DFD and perform a STRIDE analysis.
+- BTO2. Deploy additional threat detection tooling and monitoring solutions to increase visibility across the environment.
+- BTO3. Configure useful methods of detection, such as IDS rules, to improve the defensive posture of the environment.
+  - BTO3a. One of your key assets is a web server hosting SimCorp's web application. See if you can implement detective controls.
+- BTO4. Observe adversarial actions and collect evidence of any scanning or TTPs taken by the threat actors. Your final deliverable consists of these observations, so gather as much as you can to paint a picture of what the kill chain is looking like. IOCs may be copied but not deleted or tampered with.
+- BTO5. Build/customize and fully implement a form of scripted automation that alerts you to adversarial activity.
 
-  * The attack should trigger an event that gets ingested by the SIEM solution
+Keep in mind you are not allowed to deny adversarial access to the environment. This means changing port and firewall configurations is out of scope. If you are unsure if your actions are within scope, consult the white team (instructor).
 
-* **Cloud Monitoring**
+## Rules of Engagement
 
-  * Capture traffic for the client to demonstrate how the attack TTPs would be detected in the AWS Cloud using VPC Flow Logs and any additional automation necessary
+SimCorp has designated the following scope of work.
 
-  * An AWS Lambda function triggering a relevant response to a detected threat (this fulfills the requirement for a shell script)
+### Red Team RoE
 
-  * Monitor for threat activity in your AWS environment
+- Do not attack or damage the hypervisor software on instances
+- Read and abide by the [AWS Pentesting Policy](https://aws.amazon.com/security/penetration-testing/)
+- Do not alter the firewall or port configurations on the instances
+- Do not update the OS or existing software on the instances
+- Do not attack tooling systems
+  - OpenVPN server instance
+  - SIEM instance
+  - Threat hunter instance
+- Do not damage the operability of the instances
+- Do not delete data on the instances
+- If you need a reboot on an instance, contact the white team
 
-  * Monitor Security Logs for failed SSH attempts on your instances
+### Blue Team RoE
 
-* **Novelty**
-
-  * Challenge yourselves to implement a novel tool, system, or technique that was not demonstrated or performed during lab time in term 1 of your Ops 401 class.
+- Do not alter the firewall or port configurations on the instances
+- Do not update the OS or existing software on the instances
+- Do not interrupt attacks in progress; remember your job is to detect, not function as incident response
+- Do not damage the operability of the instances
+- Do not delete data on the instances
+- If you need a reboot on an instance, contact the white team
 
 ## Assignments & Deliverables
 
 Keep an eye on Canvas for assignments due this week.
 
-* Remember to complete nightly Project Report assignments. These assignments are easy to forget as you get swept up in interesting project subject matter.
-
-* Necessities such as team agreement (conflict resolution, etc.) and project plan will be created in your Project Prep assignments. Instructor approval is required before progressing to the next Project Prep assignment.
-
-* By demo day, you'll need these deliverables assembled:
-
-  * Demo day slide deck
-
-  * Project report
-
-  * Project plan
-
-  * GitHub repo
-
-  * Google drive docs (if used)
-
-* Track your individual contributions throughout the project so that you can easily submit your individual contributions writeup on demo day for grading.
+- Remember to complete nightly Project Report assignments. These assignments are easy to forget as you get swept up in interesting project subject matter.
+- Necessities such as team agreement (conflict resolution, etc.) and project plan will be created in your Project Prep assignments. Instructor approval is required before progressing to the next Project Prep assignment.
+- By demo day, you'll need these deliverables assembled:
+  - Demo day slide deck.
+  - Project report.
+  - Project plan.
+  - GitHub repo.
+  - Google drive docs (if used).
+- Track your individual contributions throughout the project so that you can easily submit your individual contributions writeup on demo day for grading.
 
 ## Standup
 
-Every day, the instructional team will circulate to your group for a formal "Standup Meeting".
-Standup should take approximately 10 minutes per team. Some instructors will opt for a "retro" later in the day to review how things went.
+Every day, the instructional team with circulate to your group for a formal "Standup Meeting". Standup should take approximately 10 minutes per team. Some instructors will opt for a "retro" later in the day to review how things went.
 
-Standups give the instructional team insight into the current status of your project and the progress the team hopes to make each day.
-During stand up, each team member will address these three points:
+> Standups give the instructional team insight into the current status of your project and the progress the team hopes to make each day.
 
-* What you individually accomplished yesterday
+During standup, each team member will address these three points:
 
-* What you individually plan to accomplish today
-
-* Anything that is blocking you from making progress
+  1. What you individually accomplished yesterday.
+  1. What you individually plan to accomplish today.
+  1. Anything that is blocking you from making progress.
 
 ## Presentation Prep
 
@@ -104,29 +115,43 @@ Practice and prepare your technical demonstrations in advance of demo day to rul
 
 General slide deck guidelines:
 
-* The presentation slides must use the aesthetic formatting of the template slide deck.
-
-* Remember to create your own copy of the template and do not edit the template itself.
-
-* Ensure your timing is no more than 25 minutes long, including some time at the end for questions.
-
-* Present from the final product, deployed site, or official documentation that you produce.
-
-* Each member should introduce themselves with their personal pitch.
-
-* The "About Us" page provides a great backdrop for this portion of the presentation.
+- The presentation slides must use the aesthetic formatting of the [template slide deck](https://docs.google.com/presentation/d/16LOH5KiIVGq3oJReWa2kVO_VgQZlYG9K4vNXJuJNJdE).
+  - Remember to create your own copy of the template and do not edit the template itself.
+- Ensure your timing is no more than 25 minutes long, including some time at the end for questions.
+- Present from the final product, deployed site, or official documentation that you produce.
+- Each member should introduce themselves with their personal pitch.
+  - The "About Us" page provides a great backdrop for this portion of the presentation.
 
 Each member of the team must have a speaking part. It is okay to use presenter notes/outlines but remember to avoid reading notes verbatim and to present naturally as if speaking to a colleague.
 
+### Demo Day Presentation Requirements
+
+Components of the presentation must include:
+
+- A. Team members individually introduce themselves using their own professional pitch. (3 min, explain why they are making the career change).
+- B. Topical overview (2 min).
+  - B1. As the "Problem Domain", describe the project scenario you were assigned and the overall client requirements.
+    - B1a. Compliance requirements.
+    - B1b. Security systems requirements.
+- C. Technical demonstrations of solutions (12 min).
+  - C1. Introduce the network topology of your environment.
+  - C2. Demonstrate your solution(s) to the problem domain here.
+- D. Final thoughts on how the project went (3 min).
+  - D1. Each team member should share some final thoughts on the project. Some topics you could discuss here include:
+    - D1a. The team's approach to planning and communication throughout the project.
+    - D1b. A technical obstacle or two and how those obstacles were overcome.
+    - D1c. A portion of the outcome you are particularly proud of achieving.
+- E. Q&A (5 min).
+
 The appropriate dress code is business casual - not too formal and not too casual.
 
-Be cognizant of the environment you're presenting from. A clean backdrop, good lighting, and quality mic and webcam go a long way.
+Be cognizant of the environment you're presenting from. A clean backdrop, good lighting, and quality mic and webcam go a long ways.
 
 In addition to the scheduled practice session, the team is encouraged to continue to practice on their own. Keep track of the time and adjust accordingly. Practice transitioning speaking segments.
 
 Speak clearly and do not use slang or profanity. Take it seriously and be professional.
 
-Tip: Slides should be composed of talking points, not lines to be read verbatim! Avoid the "teleprompter" effect and aim for a natural, extemporaneous presentation on demo day.
+> Tip: Slides should be composed of talking points, not lines to be read verbatim! Avoid the "teleprompter" effect and aim for a natural, extemporaneous presentation on demo day.
 
 ## Grading
 
@@ -134,119 +159,34 @@ Each team member's grade is split between their individual effort, and the proje
 
 Individual effort is graded based on contributions to project deliverables, and professionalism in the presentation.
 
-Technical merit of the project overall is evaluated according to the requirements.
+Technical merit of the project overall is evaluated according the requirements.
 
-## Presentation (55%)
+### Deliverables
 
-Components of the presentation must include:
+Submit to instructor a single "Project Report" Google Doc. All team members are to contribute an equal share to documentation corresponding to the components they worked on and should clearly indicate which components each contributed to in their individual project submission notes.
 
-* Team members individually introduce themselves using their own professional pitch. (3 min, explain why they are making the career change)
+Teams are encouraged to adopt an Agile mindset with regards to the development of their project deliverables and regularly solicit feedback from staff regarding their project report, slide deck, and other deliverables. The quality of your reporting will be evaluated and will directly impact the group submission grade. Remember to budget adequate time and attention for project deliverables to ensure a high quality of work is delivered. The client point of contact should be contacted via email regarding scenario-specific scoping.
 
-* Topical overview (2 min)
-  * As the "Problem Domain", describe the project scenario you were assigned and the overall client requirements.
+Here is a list of requirements your manager would like to see addressed in your final project report:
 
-    * Compliance requirements
+#### Red Team Deliverables (RTDs)
 
-    * Security systems requirements
+- RTD1: Completed [penetration test report](https://www.offensive-security.com/reports/sample-penetration-testing-report.pdf)
+  - RTD1a: As you describe the TTPs employed and vulnerabilities discovered in the main body of your report, ensure that you associate them with reputable community resources (e.g. CWE, CVSS, etc.)
+  - RTD1b: Replace Appendix B with a table listing all TTPs attempted mapped 1:1 to MITRE ATT&CK
 
-  * Technical demonstrations of solutions (12 min)
+#### Blue Team Deliverables (BTDs)
 
-    * Introduce the cloud architecture diagram of your environment
+- BTD1: Completed [threat intelligence and incident response report](https://zeltser.com/cyber-threat-intel-and-ir-report-template/)
+  - BTD1a: In addition to the template's prompts, describe what detective controls you implemented. Note that preventative controls are not a part of this exercise and any template prompts for such should be omitted.
+  - BTD1b: Include a threat model DFD constructed using Microsoft Threat Modeling tool, and a STRIDE analysis.
 
-    * Demonstrate your solution(s) to the problem domain here
+Upon the conclusion of demo day, access to the lab environment will be revoked.
 
-  * Final thoughts on how the project went (3 min)
+### Resources
 
-    * Each team member should share some final thoughts on the project. Some topics you could discuss here include:
+Reference the below resources for developing your penetration test report.
 
-      * The team's approach to planning and communication throughout the project
-
-      * A technical obstacle or two and how those obstacles were overcome
-
-      * A portion of the outcome you are particularly proud of achieving
-
-    * Q&A (5 min)
-
-## Deliverables (45%)
-
-Submit to your instructor a single link to your Github Org. All team members are to contribute an equal share to documentation corresponding to the components they worked on and should clearly indicate which components each contributed to in their individual project submission notes.
-
-### GitHub Repository (10%)
-
-* A repo under an appropriately named Github "Organization"
-
-* Sufficient documentation in the top level README to explain to a stranger who you are, what this project was about, and how all of the material in the repo pertains to it.
-
-* This README should be:
-
-  * Attractively formatted
-
-  * Include links to relevant files in the repo
-
-  * Include links to each of your own Github accounts AND LinkedIn accounts
-
-* All other deliverables should be included as files in this repo
-
-* Scripts: Scripts used to automate the deployment process of the project, which can include provisioning the required AWS resources, deploying the code, configuring the services and performing attacks.
-
-### Presentation Material (5%)
-
-* Slide deck, as a PDF
-
-* A link to the video of your presentation (when it becomes available)
-
-### Cloud Architecture Design (20%)
-
-* AWS infrastructure components, their interactions, and how they fit together.
-
-* All components must be labeled, and diagrams must be presentable (straight lines) and free of defects/typographical issues. Take your time to create a quality diagram; do not rush!
-
-* Clearly indicate AWS instances, networks, tools and services.
-
-* A clear, written explanation and justification of your cloud architecture design.
-
-* Add descriptions of how you incorporated these systems into your technical demo:
-
-  * AWS IAM
-
-  * AWS CloudTrail
-
-  * Amazon GuardDuty
-
-* Include a table or chart of network infrastructure and configuration details (yes, this will overlap with your topology -- you must document your network in both ways):
-
-  * Subnets and their uses
-
-  * Include Subnet Masks, CIDR addresses, etc.
-
-  * Security Group rules
-
-## SOP and Policy Documentation (10%)
-
-* **Security Incident Plan**
-
-  * The test plan should include detailed testing procedures of security controls and monitoring solutions along with expected outcomes.
-
-  * Include a diagram of the expected events when an attack triggers your monitoring tools.
-
-* **Compliance Documentation**
-
-  * Compliance documentation should be developed to demonstrate that the system meets any relevant regulatory requirements.
-
-  * This may include documentation showing compliance with PCI, GDPR, or other industry-specific regulations. (Pick one compliance framework)
-
-## Resources
-
-You can use [Stratus Red Team](https://github.com/DataDog/stratus-red-team) for threat emulation
-
-## Notice
-
-Since there is an opportunity of simulating attacks in this project, keep in mind the following:
-
-* Attack activity should only be conducted on systems you own within AWS
-
-* Attack activity should be contained to your AWS VPC and should not originate from outside of it.
-
-  * This means that if you want to simulate an attack against an instance in your VPC you should deploy an additional instance within your project VPC to act as your attacker machine and initiate attacks from there.
-
-  * This way all of your traffic is contained.
+- [Writing or Receiving Your First Pentest Report](https://blog.zsec.uk/ltr101-pentest-reporting/)
+- [Template OSCP Penetration Test Report](https://www.offensive-security.com/pwk-online/PWKv1-REPORT.doc)
+- [Example OSCP Penetration Test Report](https://www.offensive-security.com/reports/sample-penetration-testing-report.pdf)

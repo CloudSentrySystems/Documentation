@@ -1,12 +1,10 @@
 # Cloud Sentry Systems Team Agreement
 
-Marcelo Clark
+Eddie Ayala
 
-Dustin Haggett
+Carlos Rojas
 
-Robert Gillespie
-
-Jonathan McMullin
+David Siebert
 
 Raphael Chookagian
 
@@ -19,21 +17,17 @@ Describe at least:
 
 ***What are the key strengths of each person on the team?***
 
-*Marcelo Clark*
+*Eddie Ayala*
 
-* Military Background, Accountability, Listening, Documentation, resourcefulness, Determination
+*
 
-*Dustin Haggett*
+*Carlos Rojas*
 
-* Research, troubleshooting, design
+*
 
-*Robert Gillespie*
+*David Siebert*
 
-* Consistency, Availability, Hard worker, Integrity.
-
-*Jonathan McMullin*
-
-* Open-mindedness, Maintaining Github Org, Communication, Research
+*
 
 *Raphael Chookagian*
 
@@ -43,21 +37,17 @@ Describe at least:
 
 ***How can you best utilize these strengths in the execution of your project?***
 
-*Marcelo Clark*
+*Eddie Ayala*
 
-* These skills will lead to strong cohesion between myself and my team mates. I will be on time, helpful, and determined to get my part of the project done so that we can have the best project possible. Listening will let me take consideration from other team mates and implement any solutions that any one comes up with.
+* Do my job
 
-*Dustin Haggett*
+*Carlos Rojas*
 
-* Show up each day and contribute in the most helpful and efficient way possible
+* Write Documentation
 
-*Robert Gillespie*
+*David Siebert*
 
-* Showing up everyday and putting my best effort on my portion of the presentation while working with my team.
-
-*Jonathan McMullin*
-
-* Try to identify the most efficient processes, maintain open communication
+*
 
 *Raphael Chookagian*
 
@@ -67,21 +57,17 @@ Describe at least:
 
 ***In which professional competencies do you each want to develop greater strength?***
 
-*Marcelo Clark*
+*Eddie Ayala*
 
-* I would like to improve my networking and technical skills.
+* Technical vocubalary
 
-*Dustin Haggett*
+*Carlos Rojas*
 
-* Technical, but I’m open
+* Problem Solving
 
-*Robert Gillespie*
+*David Siebert*
 
-* Technical and leadership
-
-*Jonathan McMullin*
-
-* Technical (utilizing Splunk/SIEM tools), gradual implementation
+*
 
 *Raphael Chookagian*
 
@@ -91,21 +77,17 @@ Describe at least:
 
 ***Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?***
 
-*Marcelo Clark*
+*Eddie Ayala*
 
-* I plan on communicating with my teammates so that everyone is on track as to what they are doing. We will use the slack messenger app and remo to hash out any problems or come up with solutions.
+* Do my job
 
-*Dustin Hagget*
+*Carlos Rojas*
 
-* Dividing up all of the tasks for the week and get clear on deadlines and tasks for each day individually and as a team
+* Write Documentation
 
-*Robert Gillespie*
+*David Siebert*
 
-* Ask my teammates what is needed from me, ask if my teammates need any assistance, set a goal of what I want to get done each day and work until that goal is complete each day.
-
-*Jonathan McMullin*
-
-* Make sure everyone understands what we needs to be done during the morning synch meeting, keep Trello updated with progress, and be available to work through a problem collaboratively
+*
 
 *Raphael Chookagian*
 

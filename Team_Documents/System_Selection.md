@@ -4,13 +4,13 @@
 
 ## Scenario & Problem Domain
 
-Your team has been contracted to improve the cybersecurity processes and systems for a client company, focusing on logging, monitoring and detection of adversarial activity on cloud infrastructure.
+
 
 ## Systems
 
 <br>
 
-### AWS
+###
 
 How does it fit into your scenario’s requirements?
 
@@ -26,7 +26,7 @@ Minimum Viable Product (MVP) definition.
 
 <br>
 
-### Windows Active Directory
+###
 
 How does it fit into your scenario’s requirements?
 
@@ -42,7 +42,7 @@ Minimum Viable Product (MVP) definition.
 
 <br>
 
-### pfSense
+###
 
 How does it fit into your scenario’s requirements?
 
