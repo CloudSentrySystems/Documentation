@@ -19,11 +19,11 @@ Describe at least:
 
 *Eddie Ayala*
 
-*
+* Do my job
 
 *Carlos Rojas*
 
-*
+* Documentation
 
 *David Siebert*
 
